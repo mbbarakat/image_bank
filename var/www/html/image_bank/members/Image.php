@@ -1,14 +1,11 @@
 <?php
- 
-class Image
-{
-  function __construct($fileId) {
-    	$imageBasePath = BASEIMAGEPATH . $fileId . '/';
-    	$files = scandir($imageBasePath);
-    	$image = $files[2];
-    	$imagePath = $imageBasePath . $image;
-    	print("<img src='$imagePath' />");
-   }
-}
+
+include("../inc/config.php");
+include("../inc/db.php");
+include('classes/Image.php');
+
+$id = $_GET['id'];
+
+$image = new Image($id);
 
 ?>
