@@ -27,7 +27,7 @@ include("inc/loadincludes.php");
 			</form>
 			<?php
 
-			if(isset($_POST['submitted'])){
+			if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 				//Errors array
 				$errors = array();
 

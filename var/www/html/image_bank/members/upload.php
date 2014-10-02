@@ -10,6 +10,8 @@ if(!isset($_SESSION["user_name"])){
 	exit();
 }
 
+include("html_head.html");
+
 echo ("<h2>Upload New Image</h2>");
 
 //HTML form for uploading new image.
@@ -64,13 +66,17 @@ if(isset($_POST['add_image'])){
 		$statement->execute(array($title, $description, $image));
 
 		$fileId = $db->lastInsertId();
+		$fileName = basename($_FILES['postImage']['name']);
+  		$fileFormat = substr($fileName, strrpos($fileName, '.') + 1);
 
-    	$path = '../img/' . $fileId . '/';
-    	if(!file_exists($path)){
-			mkdir($path, 0777, true);
+    	$imagePath = BASEIMAGEPATH . $fileId . '/';
+
+    	if(!file_exists($imagePath)){
+			mkdir($imagePath, 0775, true);
     	}
 
-		move_uploaded_file($_FILES["postImage"]["tmp_name"], $path . '/' . $image);
+		//move_uploaded_file($_FILES["postImage"]["tmp_name"], $imagePath . '/' . $image);
+		move_uploaded_file($_FILES["postImage"]["tmp_name"], $imagePath . $fileId . '.' . $fileFormat);
 
 		header("Location:" . SITE_ROOT . MEMBER_LOGGED);
     	exit();
@@ -93,3 +99,5 @@ if(!empty($errors)){
 	echo '</p><p>Please try again.</p>';
 	echo '</div>';
 }
+
+include ("html_tail.html");
