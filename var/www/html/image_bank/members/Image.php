@@ -1,8 +1,6 @@
 <?php
 
-include("../inc/config.php");
-include("../inc/db.php");
-include('classes/Image.php');
+include("inc/loadincludes.php");
 
 $id = $_GET['id'];
 

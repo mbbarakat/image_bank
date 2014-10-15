@@ -16,8 +16,9 @@ class Image
 
 		if (file_exists($imagePath)) {
 		    header('Content-Description: File Transfer');
-		    header('Content-Type: application/octet-stream');
-		    header('Content-Disposition: inline; filename='.$image[0]['filename']);
+		    header('Content-Type: image/jpeg'); //Show Image
+		    //header('Content-Type: application/octet-stream'); //Download image
+		    header('Content-Disposition: inline; filename='. $image[0]['filename']);
 		    header('Expires: 0');
 		    header('Cache-Control: must-revalidate');
 		    header('Pragma: public');
@@ -25,7 +26,6 @@ class Image
 		    readfile($imagePath);
 		    exit;
 		}
-    	//print("<img src='$imagePath' />");
    }
 }
 

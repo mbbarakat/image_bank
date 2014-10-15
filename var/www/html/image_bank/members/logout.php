@@ -1,8 +1,6 @@
 <?php 
 
-include("session.php");
-include("../inc/config.php");
-include("../inc/db.php");
+include("inc/loadincludes.php");
 
 $_SESSION = array();
 session_destroy();

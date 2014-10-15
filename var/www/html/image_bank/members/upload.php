@@ -1,8 +1,6 @@
 <?php
 
-include("session.php");
-include("../inc/config.php");
-include("../inc/db.php");
+include("inc/loadincludes.php");
 
 //If user isn't logged in.
 if(!isset($_SESSION["user_name"])){
@@ -61,9 +59,30 @@ if(isset($_POST['add_image'])){
 
 	//Uploads image
 	if(empty($errors)){
-		$statement = $db->prepare("INSERT INTO file (title, description, filename) 
-											VALUES (?, ?, ?)");
-		$statement->execute(array($title, $description, $image));
+		//Get current owner id
+		$username = $_SESSION["user_name"];
+
+		$statement = $GLOBALS['db']->prepare("SELECT * FROM user WHERE username=? LIMIT 1");
+		$statement->execute(array($username));
+
+		$ownerId = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+		//Get image info
+		$info = getimagesize($_FILES["postImage"]["tmp_name"]);
+		$size = $_FILES["postImage"]["size"];
+
+		$imageWidth = $info[0];
+		$imageHeight = $info[1];
+
+		$imagePath = $_FILES['postImage']['name'];
+		$ext = pathinfo($imagePath, PATHINFO_EXTENSION);
+
+		$currentDate = $today = date("F j, Y, g:i a");
+
+	    //Upload image
+		$statement = $db->prepare("INSERT INTO file (title, description, filename, owner, width, height, size, type, uploaded) 
+											VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		$statement->execute(array($title, $description, $image, $ownerId[0]['userid'], $imageWidth, $imageHeight, $size, $ext, $currentDate));
 
 		$fileId = $db->lastInsertId();
 		$fileName = basename($_FILES['postImage']['name']);
