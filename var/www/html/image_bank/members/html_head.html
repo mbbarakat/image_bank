@@ -1,9 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>PHP Admin Content Management System</title>
-		</head>
+	<head>
+	  	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+		<link href="css/normalize.css" rel="stylesheet" type="text/css"/>
+	  	<link href="css/dropzone.css" rel="stylesheet" type="text/css"/>
+		<link href="css/popup.css" rel="stylesheet" type="text/css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	 	<script src="js/dropzone.js"></script>
+		<script src="js/popup.js"></script>
+	</head>
  
-	<body>
-		<a href="list.php"><b>Image List</b></a>|
-		<hr />
+	<body class="Frame">
+		<div id="wrapper">
+			<div id="header"></div>
+				<header>
+				<nav id="menu-wrap">    
+					<ul id="menu">
+						<li><a href="index.php">Home</a></li>
+						<li><a href="list.php">Images</a></li>
+						<li id="logout"><a href="logout.php">Log out</a></li>
+					</ul>
+				</nav>
+				</header>
+				<div id="content"></div>

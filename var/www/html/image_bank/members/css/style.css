@@ -1,0 +1,189 @@
+h2{color: #000;
+  font-family: 'Raleway',sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 36px;
+  margin: 0 0 24px;
+  text-align: center;
+}
+
+div.#end {
+  border-bottom: 2px solid #3d3d3d; 
+}
+ 
+.list {
+  width: 900px;
+  margin: 0 auto;
+  overflow: auto;
+}
+ 
+ul {
+  list-style-type: none;
+}
+ 
+li img {
+  float: left;
+  margin: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding:0.5px;
+  border: 2px solid #999;
+  border: inset 1px solid #333;
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+ 
+li img:hover {
+  border-color: #000; 
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px; 
+}
+
+/* navigation section */
+
+  body{
+    background: #eee url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAMAAAC6sdbXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF3d3d////riJKgAAAAAJ0Uk5T/wDltzBKAAAAFUlEQVR42mJgBAEGGMmAxAYCgAADAAGGABmnk/7aAAAAAElFTkSuQmCC);
+    font: 13px 'trebuchet MS', Arial, Helvetica;
+  }
+  
+  #menu, #menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  #menu {
+    width: 100%;
+    margin: 0px auto;
+    border: 1px solid #222;
+    background-color: #111;
+    background-image: linear-gradient(#444, #111);
+    border-radius: 6px;
+    box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
+  }
+  
+  #menu:before,
+  #menu:after {
+    content: "";
+    display: table;
+  }
+  
+  #menu:after {
+    clear: both;
+  }
+  
+  #menu {
+    zoom:1;
+  }
+
+  #menu li {
+    float: left;
+    border-right: 1px solid #222;
+    box-shadow: 1px 0 0 #444;
+    position: relative;
+  }
+
+  #menu li#logout{
+    float: right;
+  }
+  
+  #menu a {
+    float: left;
+    padding: 12px 30px;
+    color: #999;
+    text-transform: uppercase;
+    font: bold 12px Arial, Helvetica;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #000;
+  }
+  
+  #menu li:hover > a {
+    color: #fafafa;
+  }
+  
+  *html #menu li a:hover { /* IE6 only */
+    color: #fafafa;
+  }
+
+  #menu li:hover > ul {
+    opacity: 1;
+    visibility: visible;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 600px) {
+
+    /* nav-wrap */
+    #menu-wrap {
+      position: relative;
+
+    }
+
+    #menu-wrap * {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    
+    /* main nav */
+    #menu {
+      margin: 0; padding: 10px;
+      position: absolute;
+      top: 40px;
+      width: 100%;
+      z-index: 1;
+      background-color: #444;
+      display: none;
+      box-shadow: none;   
+    }
+
+  }
+
+  @media screen and (min-width: 600px) {
+    #menu {
+      display: block !important;
+    }
+  } 
+
+
+/* foot section */
+.foot {
+  width: 100%;
+  font-size:10px; 
+  color:#ddd; 
+  text-transform:uppercase; 
+  background:url(../images/foot_bg.jpg) 
+  repeat; 
+  position:absolute;
+}
+
+.foot .foot_wrap {
+  margin:0 auto; 
+  text-align:center; 
+  padding:35px 0;
+}
+.foot a {
+  color:#ddd;
+}
+
+html,
+body {
+  margin:0;
+  padding:0;
+  height:100%;
+}
+#wrapper {
+  min-height:100%;
+  position:relative;
+}
+#content {
+  padding-bottom:80px;   /* Height of the footer element */
+}
+#footer {
+  width:100%;
+  height:80px;
+  position:absolute;
+  bottom:0;
+  left:0;
+}
